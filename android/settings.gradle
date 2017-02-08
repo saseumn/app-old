@@ -1,0 +1,6 @@
+rootProject.name = 'saseumn'
+
+include ':app'
+include ':RNBottomNavigation'
+
+project(':RNBottomNavigation').projectDir = file('../node_modules/react-native-bottom-navigation/android')
