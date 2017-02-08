@@ -11,7 +11,7 @@ import {
   Text,
   View
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import Tabs from 'react-native-tabs';
 
 export default class saseumn extends Component {
@@ -22,10 +22,16 @@ export default class saseumn extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Tabs selected={this.state.page} style={{ backgroundColor: 'white' }}
-          selectedStyle={{ color: 'red' }} onSelect={el => this.setState({ page: el.props.name })}>
-          <Text name="events">Events</Text>
-          <Text name="updates">Updates</Text>
+        <Tabs selected={this.state.page} style={styles.tabs} selectedStyle={{ color: 'red' }} onSelect={el => this.setState({ page: el.props.name })}>
+          <Text name="events" style={styles.tab}>
+            <Icon name="event" size={20} />{'\n'}Events
+          </Text>
+          <Text name="checkin" style={styles.tab}>
+            <Icon name="check-circle" size={20} />{'\n'}Check In
+          </Text>
+          <Text name="account" style={styles.tab}>
+            <Icon name="account-box" size={20} />{'\n'}Account
+          </Text>
         </Tabs>
         <Text style={styles.welcome}>
           Welcome to SASE UMN!
@@ -39,6 +45,18 @@ export default class saseumn extends Component {
 }
 
 const styles = StyleSheet.create({
+  tabs: {
+    backgroundColor: 'white',
+    height: 60,
+    padding: 0
+  },
+  tab: {
+    paddingTop: 10,
+    height: 60,
+    borderTopWidth: 2,
+    textAlign: 'center',
+    alignItems: 'center'
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
